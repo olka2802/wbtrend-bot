@@ -66,11 +66,9 @@ async def process_competition(message: types.Message, state: FSMContext):
             messages=[{"role": "user", "content": prompt}]
         )
         niche = response.choices[0].message.content
-        await message.answer(f"Вот что я нашёл:
-{niche}")
+        await message.answer(f"Вот что я нашёл: {niche}")
     except Exception as e:
-        await message.answer(f"Произошла ошибка при обращении к OpenAI:
-{e}")
+        await message.answer(f"Произошла ошибка при обращении к OpenAI: {e}")
 
     await state.clear()
 
